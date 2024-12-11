@@ -1,0 +1,64 @@
+{
+  "notes": [
+    {
+      "id": "1",
+      "content": "HTML is easy",
+      "important": true
+    },
+    {
+      "id": "2",
+      "content": "Browser can execute only JavaScript",
+      "important": false
+    },
+    {
+      "id": "3",
+      "content": "GET and POST are the most important methods of HTTP protocol",
+      "important": true
+    },
+    {
+      "id": "4",
+      "content": "JSON server",
+      "important": true
+    },
+    {
+      "id": "5",
+      "content": "New note",
+      "important": true
+    },
+    {
+      "id": "0405",
+      "content": "...add a note",
+      "important": false
+    },
+    {
+      "id": "cd04",
+      "content": "next note",
+      "important": false
+    },
+    {
+      "id": "bc09",
+      "content": "n",
+      "important": true
+    },
+    {
+      "id": "4117",
+      "content": "nnn",
+      "important": false
+    },
+    {
+      "id": "bf4a",
+      "content": "service",
+      "important": true
+    },
+    {
+      "id": "137f",
+      "content": "...add a note",
+      "important": false
+    },
+    {
+      "id": "8a98",
+      "content": "service working",
+      "important": false
+    }
+  ]
+}
