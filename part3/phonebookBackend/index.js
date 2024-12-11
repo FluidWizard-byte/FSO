@@ -7,7 +7,7 @@ morgan.token('body',(req,res)=>{
     return JSON.stringify(req.body)
 })
 
-const PORT=process.env.port || 3001
+const PORT=process.env.PORT || 3001
 
 let persons=[
     { 
