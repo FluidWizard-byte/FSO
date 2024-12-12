@@ -36,3 +36,6 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# environment vairables
+.env
