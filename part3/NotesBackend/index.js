@@ -5,8 +5,32 @@ const morgan=require('morgan')
 app.use(express.static('dist'))
 app.use(express.json())
 app.use(cors())
-const PORT=3001
+require('dotenv').config();
 
+const PORT=process.env.PORT || 3001
+
+const mongoose = require('mongoose')
+
+const url = process.env.MONGODB_URI;
+
+mongoose.set('strictQuery',false)
+mongoose.connect(url)
+
+const noteSchema = new mongoose.Schema({
+  content: String,
+  important: Boolean,
+})
+
+noteSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
+  }
+})
+
+
+const Note = mongoose.model('Note', noteSchema)
 
 let notes = [
   {
@@ -46,7 +70,9 @@ app.get('/',(request,response)=>{
 })
 
 app.get('/api/notes',(request,response)=>{
-    response.json(notes)
+    Note.find({}).then(notes=>{
+      response.json(notes)
+    })
 })
 
 app.get('/api/notes/:id',(request,response)=>{
