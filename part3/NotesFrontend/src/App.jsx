@@ -77,7 +77,7 @@ const toggleImportant=(id)=>{
     setTimeout(() => {
       setErrorMessage(null)
     }, 5000)
-    setNotes(notes.filter(n => n.id !== id))
+    
   })
 }
 
@@ -89,7 +89,7 @@ const notesToShow=showAll?notesList:notesList.filter(note=>note.important===true
       <h1>Notes</h1>
       <Notification message={errorMessage} />
       <ul>
-        {notesToShow.map(note=><Note key={note.id} note={note} toggleImportant={()=>toggleImportant(note.id)}/>)}
+        {notesToShow.map(note=><Note key={note.id}  toggleImportant={()=>toggleImportant(note.id)} note={note} />)}
       </ul>
       <form onSubmit={addNote}>
         <input value={newNote} onChange={handleNewNote}/>
