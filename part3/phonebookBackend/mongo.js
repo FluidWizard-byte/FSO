@@ -20,11 +20,11 @@ const personSchema=new mongoose.Schema({
 
 const Person=mongoose.model('Person',personSchema)
 
-if(process.argv.length==3){
-    Person.find({}).then(result=>{
+if(process.argv.length===3){
+    Person.find({}).then(result => {
         result.forEach(person => {
             console.log(person.name, person.number)
-        });
+        })
         mongoose.connection.close()
     })
 }
@@ -33,8 +33,7 @@ else{
         name:name,
         number:number,
     })
-    
-    person.save().then(result=>{
+    person.save().then(result => {
         console.log('person saved to phonebook')
         console.log(result)
         mongoose.connection.close()

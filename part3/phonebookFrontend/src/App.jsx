@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import ShowForm from './components/Form'
 import ShowPersons from './components/Person'
 import Filter from './components/Filter'
@@ -36,6 +35,7 @@ const App = () => {
          }, 2500);
         }
       ).catch(error=>{
+        console.log(error)
         setNewNotificationType('error')
         setNewNotification(`Information on ${newName} has already been deleted or information is not available`)
         setTimeout(() => {
@@ -76,7 +76,14 @@ const App = () => {
           setNewNotification(null)
           }, 2500);
         }
-      )
+      ).catch(error=>{
+        setNewNotificationType('error')
+              setNewNotification(error.response.data.error)
+              setTimeout(() => {
+              setNewNotificationType(null)
+              setNewNotification(null)
+              }, 2500);
+      })
     }
     else{
       if(window.confirm(`${newName} is already added to the phonebook, replace the existing number?`)){
@@ -94,6 +101,7 @@ const App = () => {
               }, 2500);
             })
           ).catch(error=>{
+              console.log(error)
               setNewNotificationType('error')
               setNewNotification(`Information on ${newName} has already been deleted or information is not available`)
               setTimeout(() => {
