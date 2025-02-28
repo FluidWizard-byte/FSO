@@ -160,8 +160,6 @@ const notesToShow=showAll?notesList:notesList.filter(note=>note.important===true
       <ul>
         {notesToShow.map(note=><Note key={note.id}  toggleImportant={()=>toggleImportant(note.id)} note={note} />)}
       </ul>
-      {user === null && loginForm()}
-      {user !== null && noteForm()}
       <button onClick={showImportant}>
         {buttonText}
       </button>
